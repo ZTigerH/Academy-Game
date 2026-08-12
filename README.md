@@ -1,12 +1,12 @@
 # Aurelia Academy — A Huntsman's Path
 
-An original interactive text-adventure RPG, built entirely in vanilla HTML/CSS/JS — no build step, no dependencies. Open `index.html` in a browser and play.
+An original interactive text-adventure RPG, built entirely in vanilla HTML/CSS/JS with no build step, no dependencies. Open `index.html` in a browser and play.
 
 Inspired by the "huntsmen at a combat academy" aesthetic (aura/semblance-style powers, a Hollow-hunting world), but with an entirely original cast, world, and story.
 
 ## How to play
 
-Just open `index.html` in Chrome, Firefox, or Safari. That's it — everything runs client-side.
+Just open `index.html` in Chrome or Firefox. The game should run client side once you do that.
 
 If you'd rather not download anything, you can also host this repo on **GitHub Pages** (Settings → Pages → deploy from the `main` branch) and play it straight from a URL.
 
@@ -34,7 +34,7 @@ js/
   jobs-data.js            — ending-tier logic + the 6 shorter jobs' data
 ```
 
-Everything is loaded as plain `<script>` tags (no bundler, no modules) so the whole thing works by just opening the HTML file — no server required. `js/engine.js` must load first since it declares the shared `SCENES` object that each `js/scenes/*.js` file adds to.
+Everything is loaded as plain `<script>` tags (no bundler, no modules) so the whole thing works by just opening the HTML file with no server required. `js/engine.js` must load first since it declares the shared `SCENES` object that each `js/scenes/*.js` file adds to.
 
 ## Contributing / extending
 
