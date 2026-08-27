@@ -1,8 +1,8 @@
-# Aurelia Academy — A Huntsman's Path
+# Aurelia Academy: A Huntsman's Path
 
 An original interactive text-adventure RPG, built entirely in vanilla HTML/CSS/JS with no build step, no dependencies. Open `index.html` in a browser and play.
 
-Inspired by the "huntsmen at a combat academy" aesthetic (aura/semblance-style powers, a Hollow-hunting world), but with an entirely original cast, world, and story.
+Inspired by the "huntsmen at a combat academy" aesthetic (aura/semblance style powers, a Hollow hunting world), but with an entirely original cast, world, and story.
 
 ## How to play
 
