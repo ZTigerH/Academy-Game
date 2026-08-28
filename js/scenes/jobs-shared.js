@@ -1,5 +1,5 @@
 /* =========================================================
-   SHARED PART TWO SCENES — quartermaster shop, gambling den,
+   SHARED PART TWO SCENES - quartermaster shop, gambling den,
    and the generic single-stage job chapter flow used by the
    6 jobs that do not yet have a full 4-chapter arc.
    ========================================================= */
@@ -9,7 +9,7 @@ Object.assign(SCENES, {
 gambling_den: {
   chapter: "The Gambling Den",
   text: (s) => [
-    `A quiet back-room dice game, the kind every garrison town seems to have somewhere. You've got ${s.gold || 0} gold on you. The house rolls a d20 — beat 12 and you double your bet; anything else, the house keeps it.`
+    `A quiet back-room dice game, the kind every garrison town seems to have somewhere. You've got ${s.gold || 0} gold on you. The house rolls a d20 - beat 12 and you double your bet; anything else, the house keeps it.`
   ],
   choices: (s) => {
     const bets = [20, 50, 100];
@@ -36,7 +36,7 @@ gambling_result: {
     return [
       `🎲 The house rolls a ${roll}.`,
       win
-        ? `Over 12 — you win. ${bet} gold flows your way, doubled.`
+        ? `Over 12 - you win. ${bet} gold flows your way, doubled.`
         : `Under 12. The house takes your ${bet} gold without much ceremony.`
     ];
   },
@@ -51,7 +51,7 @@ gear_shop: {
   ],
   choices: (s) => {
     const opts = SHOP_ITEMS.filter(item => !hasItem(s, item.name)).map(item => ({
-      label: `Buy ${item.name} (${SLOT_LABELS[ITEM_SLOT[item.name]]}) — ${item.cost} gold`,
+      label: `Buy ${item.name} (${SLOT_LABELS[ITEM_SLOT[item.name]]}) - ${item.cost} gold`,
       requiresGold: item.cost,
       next: "gear_shop",
       effect: (st) => { bumpGold(st, -item.cost); addItem(st, item.name); }
@@ -61,7 +61,7 @@ gear_shop: {
       const value = SELL_VALUES[name];
       const isEquipped = Object.values(s.equipment || {}).includes(name);
       opts.push({
-        label: `Sell ${name}${isEquipped ? ' (equipped)' : ''} — ${value} gold`,
+        label: `Sell ${name}${isEquipped ? ' (equipped)' : ''} - ${value} gold`,
         next: "gear_shop",
         effect: (st) => { removeItem(st, name); bumpGold(st, value); }
       });
@@ -71,7 +71,7 @@ gear_shop: {
       const dur = getDurability(s, name);
       const cost = Math.max(5, 100 - dur);
       opts.push({
-        label: `Repair ${name} (${dur}% → 100%) — ${cost} gold`,
+        label: `Repair ${name} (${dur}% → 100%) - ${cost} gold`,
         requiresGold: cost,
         next: "gear_shop",
         effect: (st) => { bumpGold(st, -cost); repairItem(st, name); }
@@ -104,7 +104,7 @@ job_chapter_stage2: {
 job_chapter_resolution: {
   chapter: (s) => JOBS[s.flags.job].chapterTitle,
   text: (s) => JOBS[s.flags.job].resolutions[`${s.flags.jobChoice1}__${s.flags.jobChoice2}`],
-  choices: () => [ { label: "The End — Restart", next: "__restart__" } ]
+  choices: () => [ { label: "The End - Restart", next: "__restart__" } ]
 },
 
 
