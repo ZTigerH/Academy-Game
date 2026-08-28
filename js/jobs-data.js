@@ -22,14 +22,14 @@ const JOBS_BY_TIER = {
 const JOBS = {
 
   council: {
-    label: "Council Investigator — handle sensitive Hollow incidents for the ruling Council",
-    chapterTitle: "Special Chapter — Council Investigator",
+    label: "Council Investigator - handle sensitive Hollow incidents for the ruling Council",
+    chapterTitle: "Special Chapter - Council Investigator",
     intro: (s) => {
       const lines = [
-        `Six months in, and the Council trusts you with the cases nobody wants filed publicly. Tonight's is one of them: evidence that a Council logistics officer has been quietly rerouting Resonance-tech shipments — the same kind of tech that fueled Vesk's operation.`,
+        `Six months in, and the Council trusts you with the cases nobody wants filed publicly. Tonight's is one of them: evidence that a Council logistics officer has been quietly rerouting Resonance-tech shipments - the same kind of tech that fueled Vesk's operation.`,
         `You could expose it through official channels, which means a public scandal and possibly nothing changing structurally, or contain it quietly, keeping the Council's trust intact but letting the officer face only private consequences.`
       ];
-      if (s.stats.corruption >= 5) lines.push(`The officer, sizing you up, tries something familiar — a quiet offer to make this go away for a price. Old habits recognize old habits.`);
+      if (s.stats.corruption >= 5) lines.push(`The officer, sizing you up, tries something familiar - a quiet offer to make this go away for a price. Old habits recognize old habits.`);
       else if (s.stats.honor >= 6) lines.push(`Something about your record makes the officer's colleagues unusually willing to talk to you. People trust you with the details.`);
       return lines;
     },
@@ -43,7 +43,7 @@ const JOBS = {
     stage2Choices: (c1) => c1 === 'expose'
       ? [
           { key: 'interview', label: "Give the interview, control the narrative" },
-          { key: 'decline', label: "Decline — let the report speak for itself" }
+          { key: 'decline', label: "Decline - let the report speak for itself" }
         ]
       : [
           { key: 'hear', label: "Hear them out" },
@@ -51,7 +51,7 @@ const JOBS = {
         ],
     resolutions: {
       expose__interview: [
-        `You give the interview, careful and precise. It shapes the story the way you intended — less scandal-for-its-own-sake, more a clear account of why it mattered. The Council doesn't love it, but they can't argue with the accuracy.`,
+        `You give the interview, careful and precise. It shapes the story the way you intended - less scandal-for-its-own-sake, more a clear account of why it mattered. The Council doesn't love it, but they can't argue with the accuracy.`,
         `Ashworth reads it and tells you it was the harder right call, done well.`
       ],
       expose__decline: [
@@ -70,14 +70,14 @@ const JOBS = {
   },
 
   guard: {
-    label: "Kingdom Guard Elite — protect the capital itself",
-    chapterTitle: "Special Chapter — Kingdom Guard Elite",
+    label: "Kingdom Guard Elite - protect the capital itself",
+    chapterTitle: "Special Chapter - Kingdom Guard Elite",
     intro: (s) => {
       const lines = [
-        `The attack comes at dawn, too coordinated to be a wild swarm — Hollow hitting three gates at once, like someone studied the capital's guard rotations first.`,
+        `The attack comes at dawn, too coordinated to be a wild swarm - Hollow hitting three gates at once, like someone studied the capital's guard rotations first.`,
         `Your orders are to hold your assigned gate and nothing else. But civilians are trapped near the second gate, undefended, and holding formation means leaving them to whatever's coming.`
       ];
-      if (s.stats.resonance >= 6) lines.push(`Whatever's coming through that gate, you're not worried about your own ability to handle it — that part, at least, you're sure of.`);
+      if (s.stats.resonance >= 6) lines.push(`Whatever's coming through that gate, you're not worried about your own ability to handle it - that part, at least, you're sure of.`);
       return lines;
     },
     choices: [
@@ -85,7 +85,7 @@ const JOBS = {
       { key: 'break', label: "Break formation to save the trapped civilians" }
     ],
     stage2: (s, c1) => c1 === 'orders'
-      ? [`Afterward, a junior guard privately thanks you for holding the line — but you can tell they're still shaken by how close the second gate came to falling.`]
+      ? [`Afterward, a junior guard privately thanks you for holding the line - but you can tell they're still shaken by how close the second gate came to falling.`]
       : [`Command wants a formal explanation for breaking formation, whatever the outcome.`],
     stage2Choices: (c1) => c1 === 'orders'
       ? [
@@ -101,7 +101,7 @@ const JOBS = {
         `You tell them it gets easier. It's not entirely true, but it's what they need to hear tonight, and you make a note to actually check on them again once the shock wears off.`
       ],
       orders__honest: [
-        `You tell them the truth — that being shaken by something like this is the correct, human response, and anyone who stops being shaken by it is the one worth worrying about.`,
+        `You tell them the truth - that being shaken by something like this is the correct, human response, and anyone who stops being shaken by it is the one worth worrying about.`,
         `They seem to actually hear it. That matters more than reassurance would have.`
       ],
       break__standby: [
@@ -114,11 +114,11 @@ const JOBS = {
   },
 
   instructor: {
-    label: "Academy Instructor — train the next generation",
-    chapterTitle: "Special Chapter — Instructor",
+    label: "Academy Instructor - train the next generation",
+    chapterTitle: "Special Chapter - Instructor",
     intro: (s) => {
       const lines = [
-        `A first-year named Priya reminds you uncomfortably of yourself — talented, isolated, quietly hiding something from her team the way Sable once hid something from yours.`,
+        `A first-year named Priya reminds you uncomfortably of yourself - talented, isolated, quietly hiding something from her team the way Sable once hid something from yours.`,
         `You could pull her aside directly, the way you wish someone had for you, or let her work through it in her own time, trusting the process the way the academy trusted you.`
       ];
       if (s.stats.empathy >= 6) lines.push(`You notice the signs faster than most instructors would. That's not nothing.`);
@@ -130,7 +130,7 @@ const JOBS = {
     ],
     stage2: (s, c1) => c1 === 'intervene'
       ? [`Priya's grades slip anyway while she sorts through her situation, and other instructors start asking questions.`]
-      : [`The situation comes to a head sooner than you hoped — a near-miss during a training exercise that shakes her badly.`],
+      : [`The situation comes to a head sooner than you hoped - a near-miss during a training exercise that shakes her badly.`],
     stage2Choices: (c1) => c1 === 'intervene'
       ? [
           { key: 'adjust', label: "Quietly adjust expectations for her, for now" },
@@ -148,7 +148,7 @@ const JOBS = {
         `You hold her to the same standard as everyone else, betting that consistency is its own kind of support. It's a harder few weeks for her, but she comes out the other side having proven something to herself.`
       ],
       wait__stepin: [
-        `You finally step in after the near-miss. She's relieved more than resentful — she'd been waiting for someone to notice without her having to ask.`
+        `You finally step in after the near-miss. She's relieved more than resentful - she'd been waiting for someone to notice without her having to ask.`
       ],
       wait__trust: [
         `You hold back even now, trusting her to come to it in her own time. She eventually does, on her own terms, and you're left wondering if it would have gone easier with an earlier nudge.`
@@ -157,12 +157,12 @@ const JOBS = {
   },
 
   frontier: {
-    label: "Frontier Huntsman — hold the line at a forgotten border outpost",
-    chapterTitle: "Special Chapter — Frontier Huntsman",
+    label: "Frontier Huntsman - hold the line at a forgotten border outpost",
+    chapterTitle: "Special Chapter - Frontier Huntsman",
     intro: (s) => {
       const lines = [
         `Outpost Kell hasn't seen a proper supply run in six weeks. Ammunition is low, and a Hollow swarm is building in the tree line, larger than the outpost's remaining huntsmen can handle undersupplied.`,
-        `You could requisition supplies through the proper channels — paperwork, weeks of delay you don't have — or find another way to "acquire" what's needed before the swarm moves.`
+        `You could requisition supplies through the proper channels - paperwork, weeks of delay you don't have - or find another way to "acquire" what's needed before the swarm moves.`
       ];
       if (s.stats.corruption >= 5) lines.push(`It wouldn't be the first corner you've cut to get a job done. This one, at least, is for people who need it.`);
       return lines;
@@ -173,22 +173,22 @@ const JOBS = {
     ],
     stage2: (s, c1) => c1 === 'proper'
       ? [`The delay report reaches a higher office than you expected, and questions start getting asked about why Outpost Kell was left undersupplied this long.`]
-      : [`The merchant convoy owner you "acquired" from wants to renegotiate compensation — quietly — or he'll escalate the complaint.`],
+      : [`The merchant convoy owner you "acquired" from wants to renegotiate compensation - quietly - or he'll escalate the complaint.`],
     stage2Choices: (c1) => c1 === 'proper'
       ? [
-          { key: 'pushback', label: "Push back — explain the real conditions plainly" },
+          { key: 'pushback', label: "Push back - explain the real conditions plainly" },
           { key: 'accept', label: "Accept the reprimand quietly" }
         ]
       : [
           { key: 'payfair', label: "Pay him fairly out of outpost funds" },
-          { key: 'refuse', label: "Refuse — risk the escalation" }
+          { key: 'refuse', label: "Refuse - risk the escalation" }
         ],
     resolutions: {
       proper__pushback: [
-        `You push back, plainly, on the record — Outpost Kell's neglect isn't your failure, and you make sure the higher office hears exactly whose it is. It's an uncomfortable conversation. It's also the right one.`
+        `You push back, plainly, on the record - Outpost Kell's neglect isn't your failure, and you make sure the higher office hears exactly whose it is. It's an uncomfortable conversation. It's also the right one.`
       ],
       proper__accept: [
-        `You accept the reprimand quietly rather than make waves. It's easier in the short term. The actual problem — Kell's neglect — goes undiscussed for another season.`
+        `You accept the reprimand quietly rather than make waves. It's easier in the short term. The actual problem - Kell's neglect - goes undiscussed for another season.`
       ],
       acquire__payfair: [
         `You pay the convoy owner fairly, quietly, out of the outpost's thin funds. He drops the complaint, satisfied, and doesn't ask more questions than that.`
@@ -200,11 +200,11 @@ const JOBS = {
   },
 
   mercenary: {
-    label: "Freelance Mercenary — no institution, no safety net",
-    chapterTitle: "Special Chapter — Freelance Mercenary",
+    label: "Freelance Mercenary - no institution, no safety net",
+    chapterTitle: "Special Chapter - Freelance Mercenary",
     intro: (s) => {
       const lines = [
-        `Two contracts land on the same job, same night, same target — a Hollow den threatening a trade route. One client wants it destroyed outright. The other wants it captured alive for study, paying considerably more.`,
+        `Two contracts land on the same job, same night, same target - a Hollow den threatening a trade route. One client wants it destroyed outright. The other wants it captured alive for study, paying considerably more.`,
         `You can't fully satisfy both.`
       ];
       if (s.stats.corruption >= 5) lines.push(`You've made peace, mostly, with taking whichever deal serves you best. Tonight is no different.`);
@@ -212,7 +212,7 @@ const JOBS = {
     },
     choices: [
       { key: 'destroy', label: "Honor the destruction contract" },
-      { key: 'capture', label: "Honor the capture contract — better pay" }
+      { key: 'capture', label: "Honor the capture contract - better pay" }
     ],
     stage2: (s, c1) => c1 === 'destroy'
       ? [`Word spreads fast that you turned down the higher-paying contract. The furious second client starts telling people you can't be trusted with sensitive work.`]
@@ -224,7 +224,7 @@ const JOBS = {
         ]
       : [
           { key: 'refund', label: "Pay them back to protect your reputation" },
-          { key: 'refuse', label: "Refuse — a contract not chosen isn't a contract owed" }
+          { key: 'refuse', label: "Refuse - a contract not chosen isn't a contract owed" }
         ],
     resolutions: {
       destroy__smooth: [
@@ -237,24 +237,24 @@ const JOBS = {
         `You pay the refund, smoothing over the relationship at a real cost to your own earnings this month. It buys you goodwill you'll probably need again someday.`
       ],
       capture__refuse: [
-        `You refuse the refund on principle. Word gets around that you're reliable but not a pushover — some clients respect that. Others quietly stop calling.`
+        `You refuse the refund on principle. Word gets around that you're reliable but not a pushover - some clients respect that. Others quietly stop calling.`
       ]
     }
   },
 
   security: {
-    label: "Private Security Contractor — hired muscle for a noble house",
-    chapterTitle: "Special Chapter — Private Security",
+    label: "Private Security Contractor - hired muscle for a noble house",
+    chapterTitle: "Special Chapter - Private Security",
     intro: (s) => {
       const lines = [
-        `Your employer, a merchant lord, asks you to look the other way while his people quietly dump industrial byproduct near a Hollow-attractant site — cheaper than proper disposal, and clearly against kingdom code.`,
-        `You could comply and keep the steady paycheck, or refuse and risk the job — or take it further and expose him.`
+        `Your employer, a merchant lord, asks you to look the other way while his people quietly dump industrial byproduct near a Hollow-attractant site - cheaper than proper disposal, and clearly against kingdom code.`,
+        `You could comply and keep the steady paycheck, or refuse and risk the job - or take it further and expose him.`
       ];
       if (s.stats.apathy >= 5) lines.push(`It wouldn't be the first time you've decided this kind of thing isn't your problem to solve.`);
       return lines;
     },
     choices: [
-      { key: 'comply', label: "Look the other way — it's not your fight" },
+      { key: 'comply', label: "Look the other way - it's not your fight" },
       { key: 'expose', label: "Refuse, and expose what he's doing" }
     ],
     stage2: (s, c1) => c1 === 'comply'
@@ -263,7 +263,7 @@ const JOBS = {
     stage2Choices: (c1) => c1 === 'comply'
       ? [
           { key: 'comeforward', label: "Come forward with what you knew" },
-          { key: 'stayquiet', label: "Stay quiet — it's not provably your fault" }
+          { key: 'stayquiet', label: "Stay quiet - it's not provably your fault" }
         ]
       : [
           { key: 'explain', label: "Explain your reasons plainly" },
@@ -277,7 +277,7 @@ const JOBS = {
         `You stay quiet. Nothing is ever provably traced to you. The silence sits heavier than the money ever did.`
       ],
       expose__explain: [
-        `You explain your reasons plainly to the rival firm. They hire you on the spot — turns out that kind of integrity is rarer, and more valuable, than you expected in this line of work.`
+        `You explain your reasons plainly to the rival firm. They hire you on the spot - turns out that kind of integrity is rarer, and more valuable, than you expected in this line of work.`
       ],
       expose__silent: [
         `You let your reputation speak for itself. It takes longer to land the next job, but the ones who do hire you already know exactly what they're getting.`
@@ -286,11 +286,11 @@ const JOBS = {
   },
 
   bandit: {
-    label: "Bandit Crew Leader — outside the law now",
-    chapterTitle: "Special Chapter — Bandit Crew",
+    label: "Bandit Crew Leader - outside the law now",
+    chapterTitle: "Special Chapter - Bandit Crew",
     intro: (s) => {
       const lines = [
-        `The crew you lead — people the system also gave up on — has a target picked out: a supply caravan headed for, of all places, Outpost Kell. You recognize the name. You have history there, even if the crew doesn't know it.`,
+        `The crew you lead - people the system also gave up on - has a target picked out: a supply caravan headed for, of all places, Outpost Kell. You recognize the name. You have history there, even if the crew doesn't know it.`,
         `You could go through with the hit as planned, or warn the caravan and take the loss with your crew, or turn on your own crew to stop it.`
       ];
       if (s.stats.empathy >= 5) lines.push(`Even out here, whatever's left of your empathy hasn't fully burned off. It complicates things tonight.`);
@@ -302,7 +302,7 @@ const JOBS = {
       { key: 'betray', label: "Turn on your own crew to stop it" }
     ],
     stage2: (s, c1) => {
-      if (c1 === 'proceed') return [`Emboldened by tonight's success, the crew wants to go bigger next time — a target with real risk attached.`];
+      if (c1 === 'proceed') return [`Emboldened by tonight's success, the crew wants to go bigger next time - a target with real risk attached.`];
       if (c1 === 'warn') return [`Your crew starts to suspect there's a leak somewhere in the operation.`];
       return [`Word gets around what you did. Some crews now see you as untrustworthy; others see someone with a conscience worth recruiting.`];
     },
@@ -321,7 +321,7 @@ const JOBS = {
       ];
     },
     resolutions: {
-      proceed__pushback: [`You push back on the bigger, riskier target. The crew grumbles but ultimately defers to you — for now. You bought caution another day, nothing more.`],
+      proceed__pushback: [`You push back on the bigger, riskier target. The crew grumbles but ultimately defers to you - for now. You bought caution another day, nothing more.`],
       proceed__along: [`You go along with the escalation. It works, this time. You're aware, distantly, that "this time" isn't a strategy.`],
       warn__deflect: [`You deflect suspicion elsewhere, onto someone who didn't do anything. It works. It also isn't something you're proud of, on top of everything else.`],
       warn__quiet: [`You say nothing and let the suspicion circle without landing anywhere. It's tense for a while. Eventually it passes, mostly.`],
@@ -331,12 +331,12 @@ const JOBS = {
   },
 
   dealer: {
-    label: "Black Market Resonance Dealer — trading in what got you here",
-    chapterTitle: "Special Chapter — Black Market Dealer",
+    label: "Black Market Resonance Dealer - trading in what got you here",
+    chapterTitle: "Special Chapter - Black Market Dealer",
     intro: (s) => {
       const lines = [
-        `A buyer wants a piece of stolen Resonance tech you're sitting on — the same category of tech Vesk once used to drive Hollow against a village. You know, better than most, exactly what it can do in the wrong hands.`,
-        `You could sell it — it's a lot of money, and not selling doesn't undo how you got here — or refuse, or go further and sabotage the deal entirely.`
+        `A buyer wants a piece of stolen Resonance tech you're sitting on - the same category of tech Vesk once used to drive Hollow against a village. You know, better than most, exactly what it can do in the wrong hands.`,
+        `You could sell it - it's a lot of money, and not selling doesn't undo how you got here - or refuse, or go further and sabotage the deal entirely.`
       ];
       if (s.stats.corruption >= 6) lines.push(`This isn't your first deal like this, and you stopped pretending it would be your last a while ago.`);
       return lines;
@@ -362,25 +362,25 @@ const JOBS = {
       ];
       return [
         { key: 'hide', label: "Stay hidden, protect yourself" },
-        { key: 'reveal', label: "Let them find out — you're not ashamed" }
+        { key: 'reveal', label: "Let them find out - you're not ashamed" }
       ];
     },
     resolutions: {
       sell__again: [`You sell again. The money's good. The line between "business" and something worse keeps getting harder to find, and you've mostly stopped looking for it.`],
       sell__stop: [`You stop here, for whatever that's worth this far in. It's not redemption. It's a floor, at least, that you didn't sink below tonight.`],
       refuse__stick: [`You stick to your principle even as it costs you. It's a strange thing to be proud of in this line of work, but you are.`],
-      refuse__reconsider: [`You start reconsidering how firm that principle really needs to be, given the cost. It's a slow erosion, not a single decision — but you notice it happening.`],
+      refuse__reconsider: [`You start reconsidering how firm that principle really needs to be, given the cost. It's a slow erosion, not a single decision - but you notice it happening.`],
       sabotage__hide: [`You stay hidden and let the buyer's humiliation remain a mystery to them. Safer. Lonelier, in a way you don't examine too closely.`],
       sabotage__reveal: [`You let it be known it was you. It's dangerous, but it's also the first time in a long while doing the right thing hasn't required staying invisible.`]
     }
   },
 
   bounty: {
-    label: "Unlicensed Bounty Hunter — no oversight, no safety net",
-    chapterTitle: "Special Chapter — Bounty Hunter",
+    label: "Unlicensed Bounty Hunter - no oversight, no safety net",
+    chapterTitle: "Special Chapter - Bounty Hunter",
     intro: (s) => {
       const lines = [
-        `The bounty's straightforward on paper: a fugitive hiding in the lower city. In person, it's not — they're clearly not the monster the posting implied, just scared, cornered, and out of options.`,
+        `The bounty's straightforward on paper: a fugitive hiding in the lower city. In person, it's not - they're clearly not the monster the posting implied, just scared, cornered, and out of options.`,
         `You could complete the job as contracted, or let them go, or dig into who posted the bounty and why.`
       ];
       if (s.stats.empathy >= 5) lines.push(`Something about how scared they look gets to you more than it probably should, given the job.`);
@@ -399,7 +399,7 @@ const JOBS = {
     stage2Choices: (c1) => {
       if (c1 === 'complete') return [
         { key: 'askmore', label: "Ask more questions this time before taking it" },
-        { key: 'noquestions', label: "Take it — questions aren't part of the job" }
+        { key: 'noquestions', label: "Take it - questions aren't part of the job" }
       ];
       if (c1 === 'release') return [
         { key: 'selective', label: "Be more selective about which bounties you show mercy on" },
@@ -415,7 +415,7 @@ const JOBS = {
       complete__noquestions: [`You take it anyway, no questions, same as always. It pays the same as it always has. You've stopped expecting it to feel different.`],
       release__selective: [`You get more deliberate about when you show mercy, weighing each case instead of following a fixed rule. It's harder work, mentally, than either extreme would be.`],
       release__honestwork: [`You accept a smaller, steadier stream of work that actually sits right with you. Less money. Better sleep.`],
-      investigate__confront: [`You confront them directly. It's tense, even dangerous, but it ends the matter cleanly — on your terms, not theirs.`],
+      investigate__confront: [`You confront them directly. It's tense, even dangerous, but it ends the matter cleanly - on your terms, not theirs.`],
       investigate__wait: [`You stay alert and let them make the first move instead. It's a longer, more exhausting kind of vigilance, but it means you're never caught fully off guard.`]
     }
   },
