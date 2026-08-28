@@ -1,5 +1,5 @@
 /* =========================================================
-   ENGINE — game state, all helper/utility functions, the
+   ENGINE - game state, all helper/utility functions, the
    goTo() rendering engine, character sheet + panel UI, and
    all setup-screen / save-slot / settings event wiring.
    ========================================================= */
@@ -69,7 +69,7 @@ function anySaveExists() {
   return SAVE_SLOT_KEYS.some(k => loadSlot(k));
 }
 
-/* Chapter Select checkpoints — separate from save slots, persist across restarts,
+/* Chapter Select checkpoints - separate from save slots, persist across restarts,
    capture a full state snapshot at the start of each major chapter/part. */
 const CHECKPOINT_KEYS = {
   ch1: 'aurelia_checkpoint_ch1',
@@ -79,11 +79,11 @@ const CHECKPOINT_KEYS = {
   parttwo: 'aurelia_checkpoint_parttwo'
 };
 const CHECKPOINT_LABELS = {
-  ch1: 'Chapter 1 — Initiation',
-  ch2: 'Chapter 2 — Cracks',
-  ch3: 'Chapter 3 — The Signal',
-  ch4: 'Chapter 4 — The Weight of It',
-  parttwo: 'Part Two — Graduation'
+  ch1: 'Chapter 1 - Initiation',
+  ch2: 'Chapter 2 - Cracks',
+  ch3: 'Chapter 3 - The Signal',
+  ch4: 'Chapter 4 - The Weight of It',
+  parttwo: 'Part Two - Graduation'
 };
 
 function saveCheckpoint(key, s, sceneId) {
@@ -121,7 +121,7 @@ const ITEM_BONUSES = {
 };
 
 /* Which equipment slot each item occupies. Items without an entry (Ridgeback Scale, Vesk's Notes,
-   Bribe Money, Council Field Credentials, etc.) are trade/key items — carried but not equipped. */
+   Bribe Money, Council Field Credentials, etc.) are trade/key items - carried but not equipped. */
 const ITEM_SLOT = {
   'Stolen Blade': 'weapon',
   'Masterwork Blade': 'weapon',
@@ -153,7 +153,7 @@ const SHOP_ITEMS = [
   { name: "Villager's Guard Vest", cost: 65 }
 ];
 
-/* What each equippable item sells back for — shop gear sells at half its buy price,
+/* What each equippable item sells back for - shop gear sells at half its buy price,
    story-found items get a flat value since they weren't bought with gold. */
 const SELL_VALUES = {
   'Stolen Blade': 25,
@@ -310,7 +310,7 @@ function renderDiceRollHtml(r) {
   if (!r) return '';
   const cls = r.success ? 'success' : 'fail';
   const modSign = r.mod >= 0 ? '+' : '';
-  return `<div class="diceRoll ${cls}">🎲 Rolled ${r.roll} ${modSign}${r.mod} (${STAT_LABELS[r.statKey]}) = ${r.total} vs DC ${r.dc} — <b>${r.success ? 'Success' : 'Failure'}</b></div>`;
+  return `<div class="diceRoll ${cls}">🎲 Rolled ${r.roll} ${modSign}${r.mod} (${STAT_LABELS[r.statKey]}) = ${r.total} vs DC ${r.dc} - <b>${r.success ? 'Success' : 'Failure'}</b></div>`;
 }
 
 /* The Chapter 3 fight with Corin: harder DC if the team split up earlier, damage reduced if carrying the Stolen Blade. */
@@ -410,7 +410,7 @@ function renderRevealHtml(deltas) {
   }).join('');
 }
 
-/* Party banter — occasional short flavor lines from companions, purely cosmetic, no mechanical effect. */
+/* Party banter - occasional short flavor lines from companions, purely cosmetic, no mechanical effect. */
 const PARTY_BANTER = [
   `Sable: "You ever notice Thorne narrates his own fights under his breath? I timed it once. Very dramatic."`,
   `Thorne: "Denna's read the same field manual four times this week. I checked."`,
@@ -427,20 +427,20 @@ function maybeBanter() {
   return null;
 }
 
-/* Nemesis system — if corruption/apathy runs high enough by the end of Part One,
+/* Nemesis system - if corruption/apathy runs high enough by the end of Part One,
    a recurring antagonist starts appearing across Part Two, remembering who you became. */
 function shouldNemesisAppear(s) {
   return (effectiveStat(s, 'corruption') + effectiveStat(s, 'apathy')) >= 8;
 }
 
-/* Companion reactions — teammates notice and comment on your accumulated stat profile.
+/* Companion reactions - teammates notice and comment on your accumulated stat profile.
    Thresholds are on cumulative totals, checked fresh at the end of every chapter. */
 function getCompanionReaction(s) {
   const st = s.stats;
   const lines = [];
 
   if (st.corruption >= 5) {
-    lines.push(`Denna pulls you aside, quiet, not accusing exactly. "You've been cutting corners. I've noticed. I'm not saying anything to Ashworth — yet. But I'm watching."`);
+    lines.push(`Denna pulls you aside, quiet, not accusing exactly. "You've been cutting corners. I've noticed. I'm not saying anything to Ashworth - yet. But I'm watching."`);
   } else if (st.corruption >= 2 && st.honor < st.corruption) {
     lines.push(`Denna watches you a beat too long during debrief, like she's recalculating something about you she hasn't said out loud.`);
   }
@@ -456,13 +456,13 @@ function getCompanionReaction(s) {
   }
 
   if (st.honor < -2) {
-    lines.push(`Nobody says it outright, but the team's formation has shifted, subtly, over the past stretch — you're not quite in the center of it anymore.`);
+    lines.push(`Nobody says it outright, but the team's formation has shifted, subtly, over the past stretch - you're not quite in the center of it anymore.`);
   } else if (st.honor >= 6) {
     lines.push(`Thorne, unprompted, says: "People end up trusting you fast. I get why."`);
   }
 
   if (st.charisma >= 6) {
-    lines.push(`The easy banter with your team has only gotten easier — half the jokes in the barracks these days somehow trace back to you.`);
+    lines.push(`The easy banter with your team has only gotten easier - half the jokes in the barracks these days somehow trace back to you.`);
   }
 
   if (st.resonance >= 6) {
@@ -470,11 +470,11 @@ function getCompanionReaction(s) {
   }
 
   if (st.corruption >= 5 && st.empathy >= 5) {
-    lines.push(`It's a strange combination, the team's noticed — capable of real warmth, and also willing to cut corners nobody else would. They haven't decided yet what that adds up to.`);
+    lines.push(`It's a strange combination, the team's noticed - capable of real warmth, and also willing to cut corners nobody else would. They haven't decided yet what that adds up to.`);
   }
 
   if (s.flags.liedAboutBlade && (s.trust.denna || 0) < 0) {
-    lines.push(`Denna still remembers that blade, and the lie that came with it. She's never said anything more about it — she also never fully let it go.`);
+    lines.push(`Denna still remembers that blade, and the lie that came with it. She's never said anything more about it - she also never fully let it go.`);
   }
 
   if (s.flags.hasScar) {
@@ -482,7 +482,7 @@ function getCompanionReaction(s) {
   }
 
   if (lines.length === 0) {
-    lines.push(`The team doesn't say much about how you've been lately — steady, unremarkable, the kind of consistency nobody thinks to comment on.`);
+    lines.push(`The team doesn't say much about how you've been lately - steady, unremarkable, the kind of consistency nobody thinks to comment on.`);
   }
 
   return lines;
