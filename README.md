@@ -1,6 +1,6 @@
 # Aurelia Academy: A Huntsman's Path
 
-**[▶ Play it in your browser]((https://ztigerh.github.io/Academy-Game/))**
+**[▶ Play it in your browser](https://ztigerh.github.io/Academy-Game/)**
 
 ![Screenshot](screenshot.png)
 
