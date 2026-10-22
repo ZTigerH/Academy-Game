@@ -4,9 +4,9 @@
 
 ![Screenshot](screenshot.png)
 
-*(One or two sentences pitching your story here: who you play, what's at stake, and what makes the choices matter.)*
+Most choose-your-own-adventure games track a flag or two. I wanted one that remembers everything. Every choice nudges nine stats (Honor, Corruption, Empathy, Resolve, and so on), and the buttons never tell you what they'll cost. Each chapter ends with a reflection screen showing how you changed. Your teammates notice. The one you trusted most shows up later in your career arc. Your ending isn't picked from a menu. It's computed from who you actually were.
 
-An original text-adventure RPG set in a combat academy for monster hunters. Your choices shape your stats, your allies, and how the story ends.
+An original text-adventure RPG set in a combat academy for monster hunters based on the idea of RWBY. Your choices shape your stats, your allies, and how the story ends.
 
 ## What you'll find
 
